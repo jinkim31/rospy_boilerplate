@@ -3,7 +3,7 @@
 - compile& run
 ```
 $ cm
-$ rosrun rospy_boilerplate node.py
+$ rosrun rospy_boilerplate main.py
 ```
 
 - install dependencies(e.g. opencv, scipy)
