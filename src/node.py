@@ -14,9 +14,9 @@ class Node(object):
             self.__spin_once()
             rospy.sleep(0.5)
 
-    def __callback(self, msg):
-        rospy.loginfo('Received {}'.format(msg.data))
-
     def __spin_once(self):
         self._count += 1
         self._pub.publish('Hello world #{}'.format(self._count))
+
+    def __callback(self, msg):
+        rospy.loginfo('Received {}'.format(msg.data))
