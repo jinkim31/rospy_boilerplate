@@ -1,25 +1,22 @@
-#! /usr/bin/env python3
 import rospy
-from classes import BoilerPlate
+from std_msgs.msg import String
 
+class Node(object):
 
-def run():
-    rospy.init_node('boilerplate')
-    boilerplate = BoilerPlate()
+    def __init__(self):
+        self._pub = rospy.Publisher('foo', String, queue_size=10)
+        self._sub = rospy.Subscriber('foo', String, self.__callback)
+        self._count = 0
 
-    # NOTE: It's a good idea to sleep a little bit after creating all
-    # publishers and subscribers. This gives the node time to register with
-    # master and prevents dropping the first message(s).
-    rospy.sleep(0.5)
-    rospy.loginfo('Node started')
+        rospy.init_node('boilerplate')
 
-    rospy.loginfo('Running until shutdown (Ctrl-C).')
-    while not rospy.is_shutdown():
-        boilerplate.run_once()
-        rospy.sleep(0.5)
+        while not rospy.is_shutdown():
+            self.__spin_once()
+            rospy.sleep(0.5)
 
-    rospy.loginfo('Node finished')
+    def __callback(self, msg):
+        rospy.loginfo('Received {}'.format(msg.data))
 
-if __name__ == '__main__':
-    # TODO add argument parsing.
-    run()
+    def __spin_once(self):
+        self._count += 1
+        self._pub.publish('Hello world #{}'.format(self._count))
