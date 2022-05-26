@@ -28,6 +28,7 @@ $ sudo apt install ros-melodic-desktop-full --fix-missing
 
 1. Install Anaconda: https://www.anaconda.com/
 
+
 2. Create new virtual environment
 ```
 conda create -n ros python=3.8
