@@ -46,7 +46,10 @@ pip install netifaces
 
 5. (optional) Install additional dependencies
 ```
-
+pip install --upgrade tensorflow
+pip install matplotlib
+pip install opencv-python
+pip install scipy
 ```
 
 6. Set node interpreter
