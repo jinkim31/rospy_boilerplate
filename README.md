@@ -28,10 +28,6 @@ $ sudo apt install ros-melodic-desktop-full --fix-missing
 
 1. Install Anaconda: https://www.anaconda.com/
 
-중요: 설치시 환경변수를 설정해주겠다는 프롬프트가 뜨면 NO입력. ROS환경이 망가질 수 있음
-
-IMPORTANT: When the installer prompts it would set environmental variables for you, say NO. It will ruin ROS env variables
-
 2. Create new virtual environment
 ```
 conda create -n ros python=3.8
@@ -42,17 +38,18 @@ conda create -n ros python=3.8
 conda activate ros
 ```
 
-5. Install rospy
+4. Install ROS dependencies
 ```
-conda install -c conda-forge ros-rospy
-```
-
-6. (optional) Install additional dependencies
+pip install -U rospkg
+pip install netifaces
 ```
 
+5. (optional) Install additional dependencies
 ```
 
-7. Set node interpreter
+```
+
+6. Set node interpreter
 ```
 in src/main.py, change the first line:
 
@@ -63,7 +60,7 @@ to
 #! /home/candy/anaconda3/envs/ros/bin/python
 ```
 
-8. Compile & run
+7. Compile & run
 ```
 $ cd ~/catkin_ws && catkin_make
 $ rosrun rospy_boilerplate main.py
