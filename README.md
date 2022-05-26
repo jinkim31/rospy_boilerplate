@@ -47,9 +47,12 @@ pip install netifaces
 5. (optional) Install additional dependencies
 ```
 pip install --upgrade tensorflow
-pip install matplotlib
+pip install tensorflow-probability
 pip install opencv-python
 pip install scipy
+pip install gym
+pip install matplotlib
+pip install pygame
 ```
 
 6. Set node interpreter
