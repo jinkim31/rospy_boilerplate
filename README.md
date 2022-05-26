@@ -50,7 +50,7 @@ conda install -c conda-forge ros-rospy
 
 7. Set node interpreter
 ```
-in src/main.py, change
+in src/main.py, change the first line:
 
 #! /usr/bin/env python3
 
